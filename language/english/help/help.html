@@ -1,0 +1,159 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+.coder {
+	margin:10px;
+	padding:5px;
+	border:1px dashed #666;
+	background-color:#ddd;
+	font-family:"Courier New", Courier, monospace;
+	font-size:12px;
+}	
+-->
+</style>
+
+<div id="help-template" class="outer">
+    <h1 class="head">Help:
+        <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/qrcode/admin/index.php"
+           title="Back to the administration of QRCode"> QRCode <img src="<{xoAdminIcons home.png}>"
+                                                                       alt="Back to the Administration of QRCode"/>
+        </a></h1>
+    <!-- -----Help Content ---------- -->
+
+    <h4 class="odd">Description</h4>
+
+    <p class="even">
+<img src="<{$xoops_url}>/modules/qrcode/images/logo.png" align="baseline"><BR><strong>&nbsp;QRCode module</strong>        
+		QRCode is a module for XXX.
+</p>
+ 		   <h4 class="odd">Install/uninstall</h4>
+
+No special measures necessary, follow the standard installation process – extract the "QRCode" folder into the ../modules directory. Install the module through Admin -> System Module -> Modules. If you need detailed instructions on how to install a module, please see the <a href="http://goo.gl/adT2i">XOOPS Operations Manual</a>.<br /><br /></p>
+<h4 class="odd">Tutorial</h4>
+    <p class="even">
+        A detailed tutorial coming soon... 
+
+    <!-- -----Help Content ---------- -->
+
+  <h4 class="odd">Features</h4>
+
+    <p>Currently the QRCode module allows for creations of the following QRCores:
+    <ul>
+    <li>Visit a website</li>
+    <li>Call a phonenumber</li>
+    <li>Send a SMS to a cellphone</li>
+    <li>Plain text</li>
+    <li>Send an email</li>
+    <li>Lookup GPS coordinates</li>
+    <li>Create a business card</li>
+    </ul>
+    The implementation used for creating the QRCodes allows for 80% of all QRCode readers to understand the codes used.<BR><BR>
+    <i>If your QRCode reader does not understand all the actions taken, try switching to another reader. We suggest the Quickmar QRCode reader. Available for various platforms. Link to their website <a href="http://2lk.nl/5p" target="_blank">here</a>.</i><BR><BR>
+</p>
+
+	  <h4 class="odd">Instructions</h4>
+
+    <p>To check if a person has the QRCode module installed use the following code (Thanks to Wishcraft!!):</p>
+    <p class="coder">$module_handler = xoops_gethandler('module'); <br>
+      $xoModule = $module_handler-&gt;getByDirname('qrcode'); <br>
+      if (!is_object($xoModule)) { <br>
+           $GLOBALS['qrcode_module'] = false;  // Module Not Installed Code <br>
+      } else { <br>
+           $GLOBALS['qrcode_module'] = $xoModule-&gt;getVar('isactive'); // Module Installed Code whether active or not <br>
+    }</p>
+    <p>With the global variable available you can now check if the QRCode module is installed and active.</p>
+    <p>&nbsp;</p>
+
+	  <h4 class="odd">Creating QRCodes</h4>	
+    <p>Now that you know if the QRCode module is installed you can start creating QRCodes.<br>
+      The QRCode module returns the QRCode image.</p>
+    <p>First include the module (after you've checked if it is installed)</p>
+    <p class="coder">include_once XOOPS_ROOT_PATH.&quot;/modules/qrcode/qrcode.php&quot;;</p>
+    <p>The function wants two variables :
+    <ul>
+    <li>$type [string]</li>
+    <li>$data [array]</li>
+    <li>$size [string]</li>
+    </ul>
+    Here's how to call the function with the various types available:
+    </p>
+    <p class="coder">//Visit website<br>
+      $data = array();
+      <br>
+      $type = &quot;url&quot;;<br>
+      $data['url']=&quot;http://www.designburo.nl&quot;;<br>
+      $size=&quot;250&quot;; // image will be 250x250px
+      <br>
+      echo qrcode($type,$data,$size);
+    </p>
+    <p class="coder">//Call a phonenumber<br>
+      $data = array();
+      <br>
+      $type = &quot;phone&quot;;<br>
+      $data['phonenr']=&quot;+31162741021&quot;;<br>
+      $size=&quot;250&quot;; // image will be 250x250px
+      <br>
+      echo qrcode($type,$data,$size);
+    </p>
+    <p class="coder">//Send SMS<br>
+      $data = array();
+      <br>
+      $type = &quot;sms&quot;;<br>
+      $data['phonenr']=&quot;put cellphonenumber here&quot;;<br>
+      $data['txt']=&quot;Hi! I am sending you this sms message! Greetz&quot;;      <br>
+      $size=&quot;250&quot;; // image will be 250x250px
+      <br>
+      echo qrcode($type,$data,$size);
+    </p>
+    <p class="coder">//Plain text<br>
+      $data = array();
+      <br>
+      $type = &quot;txt&quot;;<br>
+      $data['txt']=&quot;Text that will be embeded in the QRCode&quot;;      <br>
+      echo qrcode($type,$data); // Note that no size is used. Then default  size will be 250x250px.
+    </p>
+    <p class="coder">//Send an email<br>
+      $data = array();
+      <br>
+      $type = &quot;email&quot;;<br>
+      $data['email']=&quot;info@designburo.nl&quot;; // Send email to ?<br>
+      $data['subject']=&quot;This is a test email&quot;; // Subject of the email<br>
+      $data['txt']=&quot;Hi there! Just a quick test email to see if this is working!&quot;; // Body of the email<br>
+      $size=&quot;250&quot;; // image will be 250x250px      <br>
+    echo qrcode($type,$data,$size);</p>
+    <p class="coder">//Visit gps coordinates<br>
+      $data = array();
+      <br>
+      $type = &quot;gps&quot;;<br>
+      $data['lat']=&quot;<span jstcache="47" jscontent="latlng">51,647010</span>&quot;; // Latitude<br>
+      $data['long']=&quot;<span jstcache="47" jscontent="latlng">4,829894</span>&quot;;      // Longtitude<br>
+      $size=&quot;250&quot;; // image will be 250x250px
+      <br>
+      echo qrcode($type,$data,$size);
+    </p>
+    <p class="coder">//Create a businesscard. When scanned the scanner will ask ifto add the contactinformation into your addressbook<br>
+      $data = array();
+      <br>
+      $type = &quot;contact&quot;;<br>
+      $data['surname']=&quot;<span jstcache="47" jscontent="latlng">Last name</span>&quot;; // Last name<br>
+      $data['name']=&quot;<span jstcache="47" jscontent="latlng">First name</span>&quot;; // First name<br>
+      $data['mobile']=&quot;<span jstcache="47" jscontent="latlng">Mobile number here</span>&quot;; // Cellphone number<br>
+$data['phonenr']=&quot;<span jstcache="47" jscontent="latlng">Phone number</span>&quot;; // Phone number<br>
+$data['adres']=&quot;<span jstcache="47" jscontent="latlng">Some street 5</span>&quot;; // Street + number<br>
+$data['state']=&quot;<span jstcache="47" jscontent="latlng">State</span>&quot;; // State<br>
+$data['city']=&quot;Oosterhout&quot;; // City<br>
+$data['zipcode']=&quot;<span jstcache="47" jscontent="latlng">1234 AA</span>&quot;; // Zipcode<br>
+$data['country']=&quot;the Netherlands&quot;; // Country<br>
+$data['email']=&quot;<span jstcache="47" jscontent="latlng">info@designburo.nl</span>&quot;; // emailaddress<br>
+$data['url']=&quot;<span jstcache="47" jscontent="latlng">http://www.designburo.nl</span>&quot;; // Website<br>
+$data['title']=&quot;<span jstcache="47" jscontent="latlng">General manager</span>&quot;; // title<br>
+$data['company']=&quot;<span jstcache="47" jscontent="latlng">Designburo.nl</span>&quot;; // company name<br>
+$data['b_year']=&quot;<span jstcache="47" jscontent="latlng">1971</span>&quot;; // birth year<br>
+$data['b_month']=&quot;<span jstcache="47" jscontent="latlng">08</span>&quot;; // birth month<br>
+$data['b_day']=&quot;<span jstcache="47" jscontent="latlng">01</span>&quot;; // birth day<br>
+      $size=&quot;250&quot;; // image will be 250x250px
+      <br>
+      echo qrcode($type,$data,$size);
+    </p>
+  
+</div>

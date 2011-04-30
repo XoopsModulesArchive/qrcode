@@ -1,0 +1,12 @@
+Changelog
+======================
+
+v1.00
+============
++ converted to XOOPS 2.5.0 Admin GUI (Mamba)
+
+
+v1.00
+============
+
+First official release by Chco

@@ -1,0 +1,6 @@
+Credits
+=============
+
+Following are people who have helped during the development of this module:
+
+- 
