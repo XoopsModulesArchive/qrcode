@@ -48,6 +48,7 @@ xoops_cp_header();
 
 // Define Stylesheet and JScript
 $xoTheme->addStylesheet( XOOPS_URL . "/modules/" . $xoopsModule->getVar("dirname") . "/css/admin.css" );
+//$xoTheme->addJavaScript( XOOPS_URL . "/modules/" . $xoopsModule->getVar("dirname") . "/admin/switcher.js" );
 
 //Load languages
 xoops_loadLanguage('admin', $xoopsModule->getVar("dirname"));

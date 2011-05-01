@@ -3,4 +3,4 @@ Credits
 
 Following are people who have helped during the development of this module:
 
-- 
+- Mamba for setting up 2.5.x compatibility

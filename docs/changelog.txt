@@ -1,6 +1,11 @@
 Changelog
 ======================
 
+v1.01
+============
++ added qrcode generator wizard in admin area (chco)
+
+
 v1.00
 ============
 + converted to XOOPS 2.5.0 Admin GUI (Mamba)
@@ -9,4 +14,4 @@ v1.00
 v1.00
 ============
 
-First official release by Chco
+First official release by Designburo.nl (chco)

@@ -6,7 +6,7 @@
 //  ------------------------------------------------------------------------ //														
 
 $modversion['name'] = "QRcode";
-$modversion['version'] = 1.00;
+$modversion['version'] = 1.01;
 $modversion['description'] = "This module allows function for other modules to create QRCodes";
 $modversion['author'] = "Designburo.nl";
 $modversion['credits'] = "Designburo.nl";
@@ -21,11 +21,11 @@ $modversion['status'] = "Stable";
 
 //about
 $modversion['release_date']     = '2011/04/20';
-$modversion["module_website_url"] = "http://www.xoops.org/";
-$modversion["module_website_name"] = "XOOPS";
+$modversion["module_website_url"] = "http://ett.designburo.nl/";
+$modversion["module_website_name"] = "EasyTCPtransfer :: Designburo.nl";
 $modversion["module_status"] = "RC";
-$modversion["author_website_url"] = "http://www.herve-thouzard.com/";
-$modversion["author_website_name"] = "Hervé Thouzard";
+$modversion["author_website_url"] = "http://www.designburo.nl";
+$modversion["author_website_name"] = "Designburo.nl";
 $modversion['min_php']='5.2';
 $modversion['min_xoops']="2.5";
 
