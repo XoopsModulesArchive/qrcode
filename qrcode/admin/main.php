@@ -160,13 +160,11 @@ if(isset($_POST['type']))
 	xoops_cp_footer();
 	
 		break;
-
 		
 	}
 
-
-	break;
-
+	//break;
+    return;
 }
 
 if(isset($_GET['a']))

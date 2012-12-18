@@ -6,7 +6,7 @@
 //  ------------------------------------------------------------------------ //														
 
 $modversion['name'] = "QRcode";
-$modversion['version'] = 1.01;
+$modversion['version'] = 1.02;
 $modversion['description'] = "This module allows function for other modules to create QRCodes";
 $modversion['author'] = "Designburo.nl";
 $modversion['credits'] = "Designburo.nl";
@@ -20,10 +20,10 @@ $modversion['releasedate'] = "Wednesday, 27th of April 2011";
 $modversion['status'] = "Stable";
 
 //about
-$modversion['release_date']     = '2011/04/20';
+$modversion['release_date']     = '2011/12/18';
 $modversion["module_website_url"] = "http://ett.designburo.nl/";
 $modversion["module_website_name"] = "EasyTCPtransfer :: Designburo.nl";
-$modversion["module_status"] = "RC";
+$modversion["module_status"] = "Final";
 $modversion["author_website_url"] = "http://www.designburo.nl";
 $modversion["author_website_name"] = "Designburo.nl";
 $modversion['min_php']='5.2';

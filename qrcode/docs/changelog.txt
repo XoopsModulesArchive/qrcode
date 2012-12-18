@@ -1,5 +1,7 @@
-Changelog
-======================
+v1.02
+============
++ fixed English translations (mamba)
++ fixed bug resulting in 'Cannot break/continue 1 level': you cannot use "break" in "if" statements, only in loops
 
 v1.01
 ============
