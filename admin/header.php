@@ -9,7 +9,7 @@ include_once XOOPS_ROOT_PATH . "/modules/" . $xoopsModule->getVar("dirname") . "
 //defined("FRAMEWORKS_ART_FUNCTIONS_INI") || include_once XOOPS_ROOT_PATH.'/Frameworks/art/functions.ini.php';
 //load_functions("admin");
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 if ($xoopsUser) {
     $moduleperm_handler =& xoops_gethandler('groupperm');
